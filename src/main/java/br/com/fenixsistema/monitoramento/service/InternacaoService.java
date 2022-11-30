@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,19 @@ public class InternacaoService {
 	
 	public List<Internacao> findAll(){
 		return repository.findAll();
+	}
+	
+	public List<Internacao> findAllAtivos(){
+		return repository.findByAtivo(true);
+	}
+	
+	public List<Internacao> findBySetor(List<Long> ids){
+		List<LocalInternacao> listSetor = new ArrayList<>();
+		for(Long id: ids){
+			LocalInternacao obj = localInternacaoService.findById(id);
+			listSetor.add(obj);
+		}
+		return repository.findByAtivoAndLocalInternacaoIn(true, listSetor);
 	}
 	
 	public Internacao findById(Long id) {

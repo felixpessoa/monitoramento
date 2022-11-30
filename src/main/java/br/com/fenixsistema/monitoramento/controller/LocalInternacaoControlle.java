@@ -39,6 +39,12 @@ public class LocalInternacaoControlle {
 		return ResponseEntity.ok().body(list);
 	}
 	
+	@GetMapping("/ativos")
+	public ResponseEntity<List<LocalInternacao>> findAllAtivos() {
+		List<LocalInternacao> list = service.findAllAtivos();
+		return ResponseEntity.ok().body(list);
+	}
+	
 	@PostMapping
 	public ResponseEntity<LocalInternacao> insert(@RequestBody LocalInternacao obj) {
 //		Alta obj = service.fromDTO(objDTO); 

@@ -25,6 +25,10 @@ public class LocalInternacaoService {
 		return repository.findAll();
 	}
 	
+	public List<LocalInternacao> findAllAtivos(){
+		return repository.findByAtivo(true);
+	}
+	
 	public LocalInternacao findById(Long id) {
 		Optional<LocalInternacao> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(

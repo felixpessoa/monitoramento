@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.fenixsistema.monitoramento.dto.InternacaoDTO;
 import br.com.fenixsistema.monitoramento.dto.InternacaoDTONew;
 import br.com.fenixsistema.monitoramento.model.Internacao;
+import br.com.fenixsistema.monitoramento.model.LocalInternacao;
 import br.com.fenixsistema.monitoramento.service.InternacaoService;
 
 @RestController
@@ -29,11 +30,22 @@ public class InternacaoControlle {
 	private InternacaoService service;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Internacao> findByIdCliente(@PathVariable Long id) {
+	public ResponseEntity<Internacao> findByIdInternacao(@PathVariable Long id) {
 		Internacao obj = service.findById(id);
 		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
+	
+	@GetMapping("/setor/{ids}")
+	public ResponseEntity<List<Internacao>> findBysetor(@PathVariable List<Long> ids) {
+		List<Internacao> obj = service.findBySetor(ids);
+		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	}
 
+	@GetMapping("/ativos")
+	public ResponseEntity<List<Internacao>> findAllAtivos() {
+		List<Internacao> list = service.findAllAtivos();
+		return ResponseEntity.ok().body(list);
+	}
 	
 	@GetMapping
 	public ResponseEntity<List<Internacao>> findAll() {
