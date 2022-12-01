@@ -31,6 +31,10 @@ public class PacienteService {
 				"Objeto não encontrado! id: " + id + ", Tipo: " + Paciente.class.getName()));
 	}
 	
+	public List<Paciente> findByName(String valor) {
+		return repository.findByNome(valor);
+	}
+	
 	
 	public Paciente create(Paciente obj) {
 		obj.setId(null);

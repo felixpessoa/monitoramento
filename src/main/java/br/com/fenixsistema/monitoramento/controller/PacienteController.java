@@ -27,8 +27,14 @@ public class PacienteController {
 	private PacienteService service;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Paciente> findByIdCliente(@PathVariable Long id) {
+	public ResponseEntity<Paciente> findById(@PathVariable Long id) {
 		Paciente obj = service.findById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	}
+	
+	@GetMapping("nome/{valor}")
+	public ResponseEntity<List<Paciente>> findByIdNome(@PathVariable String valor) {
+		List<Paciente> obj = service.findByName(valor);
 		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
 	
