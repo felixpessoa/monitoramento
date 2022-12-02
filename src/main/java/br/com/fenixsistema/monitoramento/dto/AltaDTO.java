@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,8 +18,8 @@ public class AltaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
-	private LocalDateTime dataAlta;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dataAlta;
 	private String tipoDeAlta;
 	private Long paciente;
 	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")

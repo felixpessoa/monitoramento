@@ -53,7 +53,7 @@ public class PacienteService {
 		newObj.setNome(obj.getNome());
 		newObj.setSexo(obj.getSexo());
 		newObj.setDataNascimento(obj.getDataNascimento());
-		newObj.setDataAdmissao(obj.getDataAdmissao());
+//		newObj.setDataAdmissao(obj.getDataAdmissao());
 		newObj.setNumeroDoGal(obj.getNumeroDoGal());
 		newObj.setDataDaColetaCovid(obj.getDataDaColetaCovid());
 		newObj.setAmostra(obj.getAmostra());

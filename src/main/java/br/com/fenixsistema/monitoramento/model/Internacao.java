@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -31,10 +32,10 @@ public class Internacao implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "localInternacao_id")
 	private LocalInternacao localInternacao;
-	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
-	private LocalDateTime inicio;
-	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
-	private LocalDateTime fim;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate inicio;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate fim;
 	@ManyToOne
 	@JoinColumn(name = "paciente_id")
 	private Paciente paciente;

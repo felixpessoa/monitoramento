@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Alta implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
-	private LocalDateTime dataAlta;
+	private LocalDate dataAlta;
 	private String tipoDeAlta;
 	@ManyToOne
 	@JoinColumn(name = "paciente_id")

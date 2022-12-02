@@ -107,6 +107,7 @@ public class InternacaoService {
 		obj.setFim(objDTO.getFim());
 		Paciente paciente = pacienteService.findById(objDTO.getPaciente());
 		obj.setPaciente(paciente);
+		obj.setAtivo(objDTO.isAtivo());
 		return obj;
 	}
 
@@ -118,6 +119,7 @@ public class InternacaoService {
 		obj.setFim(objDTO.getFim());
 		Paciente paciente = pacienteService.findById(objDTO.getPaciente());
 		obj.setPaciente(paciente);
+		obj.setAtivo(objDTO.isAtivo());
 		return obj;
 	}
 

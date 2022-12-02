@@ -33,8 +33,8 @@ public class Paciente implements Serializable{
 	private char sexo;
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataNascimento;
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataAdmissao;
+//	@JsonFormat(pattern = "dd/MM/yyyy")
+//	private LocalDate dataAdmissao;
 	private String numeroDoGal;
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataDaColetaCovid;
