@@ -27,7 +27,7 @@ public class Alta implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAlta;
 	private String tipoDeAlta;
 	@ManyToOne

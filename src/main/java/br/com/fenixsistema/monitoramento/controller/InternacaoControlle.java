@@ -32,6 +32,7 @@ public class InternacaoControlle {
 	@GetMapping("/{id}")
 	public ResponseEntity<Internacao> findByIdInternacao(@PathVariable Long id) {
 		Internacao obj = service.findById(id);
+//		Internacao obj2 = service.findByPact(obj.getPaciente());
 		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
 	

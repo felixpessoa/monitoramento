@@ -14,7 +14,7 @@ import br.com.fenixsistema.monitoramento.model.Paciente;
 @Repository
 public interface InternacaoRepository extends JpaRepository<Internacao, Long>{
 	
-	@Query("SELECT obj FROM Internacao obj WHERE obj.paciente =:paciente")
+	@Query("SELECT obj FROM Internacao obj WHERE obj.paciente =:paciente and obj.ativo = true")
 	Internacao findByParciente(@Param("paciente")Paciente paciente);
 	
 	List<Internacao> findByAtivoAndLocalInternacaoIn(boolean ativo, List<LocalInternacao> obj);

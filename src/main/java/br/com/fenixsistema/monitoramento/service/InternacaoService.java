@@ -55,6 +55,11 @@ public class InternacaoService {
 	
 	
 	public Internacao create(Internacao obj) {
+		
+		if (repository.findByParciente(obj.getPaciente())!= null) {
+			throw new ObjectNotFoundException("Paciente já Internado.");
+		}
+		
 		obj.setId(null);
 		obj.setDataCadastro(LocalDateTime.now());
 		obj.setAtivo(true);
