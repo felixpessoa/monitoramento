@@ -28,8 +28,8 @@ public class Obito implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataAlta;
-	private String tipoDeAlta;
+	private LocalDate dataObito;
+	private String descricao;
 	@ManyToOne
 	@JoinColumn(name = "paciente_id")
 	private Paciente paciente;
