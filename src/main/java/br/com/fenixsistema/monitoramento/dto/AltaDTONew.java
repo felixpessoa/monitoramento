@@ -19,7 +19,8 @@ public class AltaDTONew implements Serializable{
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAlta;
-	private String tipoDeAlta;
+	private Integer tipoDeAlta;
+	private String descricao;
 	private Long paciente;
 	
 	

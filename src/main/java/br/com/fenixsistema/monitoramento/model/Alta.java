@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.fenixsistema.monitoramento.model.enuns.TipoDeAlta;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,8 @@ public class Alta implements Serializable{
 	private Long id;
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAlta;
-	private String tipoDeAlta;
+	private TipoDeAlta tipoDeAlta;
+	private String descricao;
 	@ManyToOne
 	@JoinColumn(name = "paciente_id")
 	private Paciente paciente;

@@ -15,6 +15,7 @@ import br.com.fenixsistema.monitoramento.dto.AltaDTONew;
 import br.com.fenixsistema.monitoramento.model.Alta;
 import br.com.fenixsistema.monitoramento.model.Internacao;
 import br.com.fenixsistema.monitoramento.model.Paciente;
+import br.com.fenixsistema.monitoramento.model.enuns.TipoDeAlta;
 import br.com.fenixsistema.monitoramento.repository.AltaRepository;
 import br.com.fenixsistema.monitoramento.service.exception.DataIntegrityException;
 import br.com.fenixsistema.monitoramento.service.exception.ObjectNotFoundException;
@@ -77,14 +78,18 @@ public class AltaService {
 		Alta alta = new Alta();
 		alta.setId(objDTO.getId());
 		alta.setDataAlta(objDTO.getDataAlta());
-		alta.setTipoDeAlta(objDTO.getTipoDeAlta());
+		alta.setTipoDeAlta(TipoDeAlta.toEnum(objDTO.getTipoDeAlta()));
+		alta.setDescricao(objDTO.getDescricao());
+		Paciente paciente = pacienteService.findById(objDTO.getPaciente());
+		alta.setPaciente(paciente);
 		return alta;
 	}
 
 	public Alta fromDTO(AltaDTONew objDTO) {
 		Alta alta = new Alta();
 		alta.setDataAlta(objDTO.getDataAlta());
-		alta.setTipoDeAlta(objDTO.getTipoDeAlta());
+		alta.setTipoDeAlta(TipoDeAlta.toEnum(objDTO.getTipoDeAlta()));
+		alta.setDescricao(objDTO.getDescricao());
 		Paciente paciente = pacienteService.findById(objDTO.getPaciente());
 		alta.setPaciente(paciente);
 		return alta;

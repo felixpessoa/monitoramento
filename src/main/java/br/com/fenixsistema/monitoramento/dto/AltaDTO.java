@@ -20,7 +20,8 @@ public class AltaDTO implements Serializable{
 	private Long id;
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAlta;
-	private String tipoDeAlta;
+	private Integer tipoDeAlta;
+	private String descricao;
 	private Long paciente;
 	@JsonFormat(pattern = "HH:mm dd/MM/yyyy")
 	private LocalDateTime dataCadastro;
@@ -30,7 +31,8 @@ public class AltaDTO implements Serializable{
 		super();
 		this.id = obj.getId();
 		this.dataAlta = obj.getDataAlta();
-		this.tipoDeAlta = obj.getTipoDeAlta();
+		this.tipoDeAlta = obj.getTipoDeAlta().getCod();
+		this.descricao = obj.getDescricao();
 		this.dataCadastro = obj.getDataCadastro();
 	}
 	

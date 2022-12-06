@@ -96,3 +96,5 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
 	... 92 more
+2022-12-06 11:20:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "Evasão" [22018-214]
