@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.controller;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.fenixsistema.monitoramento.dto.InternacaoDTO;
 import br.com.fenixsistema.monitoramento.dto.InternacaoDTONew;
 import br.com.fenixsistema.monitoramento.model.Internacao;
-import br.com.fenixsistema.monitoramento.model.LocalInternacao;
 import br.com.fenixsistema.monitoramento.service.InternacaoService;
 
 @RestController
@@ -46,6 +47,12 @@ public class InternacaoControlle {
 	public ResponseEntity<List<Internacao>> findAllAtivos() {
 		List<Internacao> list = service.findAllAtivos();
 		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping("/datas")
+	public ResponseEntity<List<Internacao>> findBysetor(@RequestParam LocalDate dataDe, @RequestParam LocalDate dataAte) {
+		List<Internacao> obj = service.findByInternamentoData(dataDe, dataAte);
+		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
 	
 	@GetMapping
