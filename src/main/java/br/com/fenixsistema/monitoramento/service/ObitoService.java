@@ -1,5 +1,6 @@
 package br.com.fenixsistema.monitoramento.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -93,6 +94,10 @@ public class ObitoService {
 		Paciente paciente = pacienteService.findById(objDTO.getPaciente());
 		alta.setPaciente(paciente);
 		return alta;
+	}
+
+	public List<Obito> findByInternamentoData(LocalDate dataDe, LocalDate dataAte) {
+		return repository.findByInternamentoData(dataDe, dataAte);
 	}
 
 }

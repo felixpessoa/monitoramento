@@ -1,6 +1,7 @@
 package br.com.fenixsistema.monitoramento.controller;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -30,6 +32,12 @@ public class AltaController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Alta> findByIdCliente(@PathVariable Long id) {
 		Alta obj = service.findById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	}
+	
+	@GetMapping("/datas")
+	public ResponseEntity<List<Alta>> findBysetor(@RequestParam LocalDate dataDe, @RequestParam LocalDate dataAte) {
+		List<Alta> obj = service.findByInternamentoData(dataDe, dataAte);
 		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
 	
