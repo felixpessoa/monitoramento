@@ -53,6 +53,10 @@ public class InternacaoService {
 		return repository.findByInternamentoData(dataDe, dataAte);
 	}
 	
+	public int findByInternamentoMes(LocalDate dataDe, LocalDate dataAte){
+		return repository.findByInternamentoMes(dataDe, dataAte);
+	}
+	
 	
 	public Internacao findById(Long id) {
 		Optional<Internacao> obj = repository.findById(id);

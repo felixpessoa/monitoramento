@@ -49,9 +49,16 @@ public class InternacaoControlle {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	@GetMapping("/datas")
+//	@GetMapping("/datas")
 	public ResponseEntity<List<Internacao>> findBysetor(@RequestParam LocalDate dataDe, @RequestParam LocalDate dataAte) {
 		List<Internacao> obj = service.findByInternamentoData(dataDe, dataAte);
+		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	}
+	
+	
+	@GetMapping("/datas")
+	public ResponseEntity<?> findByInternamentoMes(@RequestParam LocalDate dataDe, @RequestParam LocalDate dataAte) {
+		int obj = service.findByInternamentoMes(dataDe, dataAte);
 		return ResponseEntity.status(HttpStatus.OK).body(obj);
 	}
 	
